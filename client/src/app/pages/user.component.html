@@ -53,7 +53,7 @@
             </div>
                     
         <!-- BUTTON -->
-        <button class="btn btn-primary pull-right p-1" color="primary" [disabled]="editForm.invalid" (click)="save()">
+        <button class="btn btn-primary pull-right mx-1" color="primary" [disabled]="editForm.invalid" (click)="save()">
             <span *ngIf="!user._id" >
                 <i class="fa fa-plus"></i> ADD
             </span>
@@ -62,7 +62,7 @@
             </span>
         </button>
         
-        <button class="btn btn-primary pull-right p-1" color="primary" *ngIf="user._id" (click)="delete()">
+        <button class="btn btn-primary pull-right mx-1" color="primary" *ngIf="user._id" (click)="delete()">
                 <span >
                     <i class="fa fa-minus"></i> Delete
                 </span>
