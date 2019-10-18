@@ -3,10 +3,10 @@ import properties from "./properties.js";
 
 import mysql from 'mysql';
 //var mysql = require('mysql');
-import UserModel from "./models/sqlUserModel"
+import UserModel from "./startup/usertb"
 import { userInfo } from "os";
 
-class sqlDatabase {
+class Database {
     constructor() {}
 
     async init() {
@@ -48,4 +48,4 @@ class sqlDatabase {
 
 }
 
-export default new sqlDatabase();
+export default new Database();

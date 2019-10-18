@@ -5,16 +5,13 @@ const mysqlConfig = {
     database: "mydb"    
 }
 
-const noSqlConfig = {db_Url: 'localhost:27017/challange_db',
-}
 const config = {
     publicPath: '../client/dist',
     port: 8000,
-    tokenSecret: 'notasecret',
     api: '/api'
 }
 
-module.exports = {mysqlConfig , noSqlConfig, config}; 
+module.exports = {mysqlConfig , config}; 
 
 /*
 module.exports = {

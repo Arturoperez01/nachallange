@@ -18,10 +18,10 @@ import helmet from "helmet";
 
 // Database
 //import nosqlDatabase from "./nosqlDatabase";
-import sqlDatabase from "./sqlDatabase";
+import database from "./database";
 
 // Controllers
-import sqlUserController     from "./controllers/sqlUserController";
+import UserController     from "./controllers/UserController";
 //*/
 // End Import Controllers
 
@@ -38,8 +38,7 @@ class Server {
   async init() {
 
     // Start Init Database
-    //nosqlDatabase.init();
-    sqlDatabase.init();
+    database.init();
     // End Init Database
 
     // Add parser
@@ -79,7 +78,7 @@ class Server {
     const router = express.Router();
 
     // Start Init Controllers
-    sqlUserController.init(router);
+    UserController.init(router);
     
 		 // End Init Controllers
 
