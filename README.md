@@ -28,6 +28,8 @@ the default settings as shown below:
     password: "",
     database: "mydb"  
 
+*note: You would need to create a new database for the project, the default database is mydb.
+
 After the database is set next you need is to install the dependencies, for this you must open a terminal in this folder and type:
 
 ``` 
