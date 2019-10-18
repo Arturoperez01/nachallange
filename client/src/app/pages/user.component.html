@@ -41,13 +41,13 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="string" class="form-control" id="name" [(ngModel)]="user.name" name="name" #name="ngModel" required>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" #name="ngModel" required>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="string" class="form-control" id="age" [(ngModel)]="user.age" name="age" #age="ngModel" required>
+                        <input type="number" class="form-control" id="age" [(ngModel)]="user.age" name="age" #age="ngModel" required>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             </span>
         </button>
         
-        <button class="btn btn-primary pull-right p-1" color="primary" *ngIf="user._id" (click)="save()">
+        <button class="btn btn-primary pull-right p-1" color="primary" *ngIf="user._id" (click)="delete()">
                 <span >
                     <i class="fa fa-minus"></i> Delete
                 </span>

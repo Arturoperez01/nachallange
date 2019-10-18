@@ -3,11 +3,11 @@
 import mongoose from "mongoose";
 
 // Properties
-import properties from "./properties.js";
+import noSqlConfig from "./properties.js";
 
 // Start Import Models
 
-import UserModel        from "./models/UserModel";
+import UserModel from "./models/UserModel";
 //*/
 // End Import Models
 
@@ -19,7 +19,7 @@ class Database {
    */
   async init() {
     await this.authenticate();
-    console.log("MongoDB connected at: " + properties.db_Url);
+    console.log("MongoDB connected at: " + noSqlConfig.db_Url);
 
     // Start Init Models
 
@@ -34,7 +34,7 @@ class Database {
     console.log("Authenticating to the databases...");
     try {
       this.dbConnection = await mongoose.connect(
-        "mongodb://" + properties.db_Url,
+        "mongodb://" + noSqlConfig.db_Url,
         { useNewUrlParser: true }
       );
     } catch (err) {

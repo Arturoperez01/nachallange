@@ -17,10 +17,11 @@ import helmet from "helmet";
 // Start Import Controllers
 
 // Database
-import Database from "./Database";
+//import nosqlDatabase from "./nosqlDatabase";
+import sqlDatabase from "./sqlDatabase";
 
 // Controllers
-import UserController     from "./controllers/UserController";
+import sqlUserController     from "./controllers/sqlUserController";
 //*/
 // End Import Controllers
 
@@ -37,8 +38,9 @@ class Server {
   async init() {
 
     // Start Init Database
-		Database.init();
- // End Init Database
+    //nosqlDatabase.init();
+    sqlDatabase.init();
+    // End Init Database
 
     // Add parser
     this.app.use(bodyParser.json());
@@ -47,7 +49,7 @@ class Server {
     // Securitiy
     this.app.use(helmet());
     this.app.use(cors());
-
+    
     // Redirect frontend
     this.app.use("*", (req, res, next) => {
       if (req.originalUrl) {
@@ -65,19 +67,19 @@ class Server {
         next();
       }
     });
-    
+    //*/
     // Start App Server
     const server = http.Server(this.app);
-    this.app.use(express.static(properties.publicPath));
+    this.app.use(express.static(properties.config.publicPath));
 
-    await server.listen(properties.port);
-    console.log("Server started on port " + properties.port);
+    await server.listen(properties.config.port);
+    console.log("Server started on port " + properties.config.port);
 
     // Import controllers
     const router = express.Router();
 
     // Start Init Controllers
-    UserController.init(router);
+    sqlUserController.init(router);
     
 		 // End Init Controllers
 

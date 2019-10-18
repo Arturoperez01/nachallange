@@ -54,20 +54,8 @@ export class UserComponent implements OnInit {
         //*/
     }
 
-    /**
-     * Delete user
-     */
-    deleteUser(id): void {
-        this.idDel=id;
 
-        /*
-        $('#modal-danger .modal-title').html('Confirmar');
-        $('#modal-danger .modal-body').html('<p class="text-center">En verdad desea eliminar el registro?</p>');      
-        $('#modal-danger').modal('show');  
-        //*/
-    }
-
-    confirmDelete(){
+    delete(){
         this.userService.delete(this.user._id).subscribe(data =>{
             this.getAll()
         });

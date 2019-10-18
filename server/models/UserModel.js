@@ -1,4 +1,4 @@
-import Database from "../Database";
+import Database from "../nosqlDatabase";
 import mongoose, { Schema } from "mongoose";
 
 
