@@ -1,0 +1,17 @@
+
+<mat-toolbar color="warn"> 
+    <a class="logo-wrapper waves-effect p-2" href="#">
+        <i class="fab fa-html5 fa-3x"></i>
+        </a>My App
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+    
+    <mat-drawer mode="side" opened>
+            <a class="dropdown-item" routerLink="/">Tabla</a>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+        
+    </mat-drawer-content>
+    
+</mat-drawer-container>

@@ -1,0 +1,91 @@
+
+<mat-card class="m-5">
+<!-- TITLE -->
+    <mat-card-title>
+        <h1>Manage User</h1>
+    </mat-card-title>
+
+    <mat-card-content>
+
+
+
+<!-- TABLE LIST -->
+
+<h1 class="p-3 mb-5 mt-5 text-center" *ngIf="list.length==0">
+        No related data in the database
+</h1>
+<table class="table table-hover" *ngIf="list.length != 0">
+    <thead>
+        <tr>
+            <th>Title (job Title)</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let user of list" (click)="getUser(user._id)">
+            <td>{{user.title }}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.age }}</td>
+        </tr>
+    </tbody>
+</table>
+        <form #editForm="ngForm" *ngIf="user">
+            <div class="row justify-content-md-center">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="title">Title (job Title)</label>
+                        <input type="text" class="form-control" id="title" [(ngModel)]="user.title" name="title" #title="ngModel" required>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="string" class="form-control" id="name" [(ngModel)]="user.name" name="name" #name="ngModel" required>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="string" class="form-control" id="age" [(ngModel)]="user.age" name="age" #age="ngModel" required>
+                    </div>
+                </div>
+            </div>
+                    
+        <!-- BUTTON -->
+        <button class="btn btn-primary pull-right p-1" color="primary" [disabled]="editForm.invalid" (click)="save()">
+            <span *ngIf="!user._id" >
+                <i class="fa fa-plus"></i> ADD
+            </span>
+            <span *ngIf="user._id" >
+                <i class="fa fa-edit"></i> Update
+            </span>
+        </button>
+        
+        <button class="btn btn-primary pull-right p-1" color="primary" *ngIf="user._id" (click)="save()">
+                <span >
+                    <i class="fa fa-minus"></i> Delete
+                </span>
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+
+<!--div class="modal modal-danger fade" id="modal-danger" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-outline" (click)="confirmDelete()">Eliminar</button>
+        </div>
+        </div>
+    </div>
+</div-->
