@@ -25,6 +25,7 @@ export class UserComponent implements OnInit {
 
     ngOnInit(): void {
         this.getAll()
+        this.userService.personas.subscribe(user => this.user = user);
     }
 
     /**

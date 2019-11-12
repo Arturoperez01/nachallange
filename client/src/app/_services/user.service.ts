@@ -1,19 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { WebsocketService } from './websocket.service';
 
 import { User } from '../_models/user';
 import { GLOBAL as config } from '../_config/config';
 //import { config } from 'rxjs';
+const user_url = 'ws://127.0.0.1:8000';//"ws://echo.websocket.org/";
 
 @Injectable()
 export class UserService {
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient,
+                private wsService: WebsocketService) { 
+                    this.personas = <Subject<User>>this.wsService.connect(user_url).pipe(
+                        map(
+                          (response): any => {
+                            //let data = JSON.parse(response.data);
+                            console.log(response)
+                            return response;
+                          }
+                        )
+                      )
                 }
-
+                
+    public personas: Subject<User>;
     contextUrl: string = config.url+'user';
-
+    
     getAll(): Observable<User[]> {
         return this.http.get<User[]>(`${this.contextUrl}`)
         .pipe(map(data => data));

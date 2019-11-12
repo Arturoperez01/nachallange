@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { WebsocketService } from './_services/websocket.service';
+
 import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -21,7 +23,7 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [WebsocketService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
 })

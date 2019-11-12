@@ -70,7 +70,16 @@ class Server {
     // Start App Server
     const server = http.Server(this.app);
     this.app.use(express.static(properties.config.publicPath));
+        
+    var socketio = require('socket.io')(server/*, 
+      {serveClient: true,// config.env !== 'production',
+      path: '/socket.io-client'
+    }//*/
+    );
+    //*/
 
+    require('./config/socketio').default(socketio);
+    
     await server.listen(properties.config.port);
     console.log("Server started on port " + properties.config.port);
 
