@@ -16,7 +16,7 @@
   "dependencies": {
     "concurrently": "^3.2.0",
     "copy-webpack-plugin": "^4.0.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "repository": {}
 }
